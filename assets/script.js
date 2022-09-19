@@ -17,22 +17,24 @@ function generatePassword()  {
   var length = prompt("How many characters would you like your password to contain?")
  console.log(length)
 
- var hasspecial = confirm("including special characters?")
+ //choose a length of at least 8 characters and no more than 128 characters
+
+ var hasspecial = confirm("include special characters?")
  console.log(hasspecial)
 
- var haslower = confirm("including lowercase characters? ")
+ var haslower = confirm("include lowercase characters? ")
  console.log(haslower)
 
- var hasupper = confirm("including uppercase characters?")
+ var hasupper = confirm("include uppercase characters?")
  console.log(hasupper)
 
- var hasnumbers = confirm("including numbers?")
+ var hasnumbers = confirm("include numbers?")
  console.log(hasnumbers)
 
- const lowercase = "abcdefghijklmnopqrstuvwxyz"
- const numbers = "0123456789";
- const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
  const symbols = "!@#$%^&*_-+=";
+ const lowercase = "abcdefghijklmnopqrstuvwxyz"
+ const uppercase = "ABCDEFGHIJKLMNOPQRSTUVWXYZ"
+ const numbers = "0123456789";
  var str= ""
 
 if (hasspecial===true) {
@@ -53,9 +55,65 @@ if (hasnumbers===true) {
 }
 
 
+
+
+  var password= ""
+  for (var i =0; i<length;i ++) {
+    var random=str[Math.floor(Math.random() * str.length)];
+    password = password + random
+  } 
+
+//      var char = Math.floor(Math.random() * str.length + 1);
+//        
+//      pasword += str.charAt(char)
+
+
+  return password
+}
+
+// var passwordOptions= {
+//   length: length,
+//   hasspecial: hasspecial,
+//   haslower: haslower,
+//   hasupper: hasupper,
+//   hasnumbers: hasnumbers
+//   }
+
+
+// 1. create generate password function
+// 2. make two variable for array one is possible characters, the next is guaranteed characters
+// 3. use concat method i sent earlier to add possible characters into array
+// 4. once you added possible characters use getrandom() to push into guaranteed charachters array
+// 5. make a For loop to iterate over the password length from the options object, selecting random indices from the array of possible characters and concatenating those characters into the result variable
+
+
+// Write password to the #password input
+function writePassword() {
+  var password = generatePassword();
+  var passwordText = document.querySelector("#password");
+
+  passwordText.value = password;
+
+}
+  
+// Add event listener to generate button
+generateBtn.addEventListener("click", writePassword);
+
+
+
+// function for getting a random element from an array
+// generate password 78
+//  var password = [];
+
+
+  
+
+
 //Function to generate combination of password */
 //function generatePassword() {
-//  var password = '';
+
+
+
 //  var str = 'ABCDEFGHIJKLMNOPQRSTUVWXYZ' + 
 //          'abcdefghijklmnopqrstuvwxyz0123456789@#$';
 
@@ -87,23 +145,7 @@ if (hasnumbers===true) {
 //      pasword += str.charAt(char)
 //  }
 //    return pass;
-  
- return password
-}
-
-// Write password to the #password input
-function writePassword() {
-  var password = generatePassword();
-  var passwordText = document.querySelector("#password");
-
-  passwordText.value = password;
-
-}
-  
-// Add event listener to generate button
-generateBtn.addEventListener("click", writePassword);
-
-
+ 
 // alerts
 //How many characters would you like your password to contain?
 //The password should be at least 8 characters
