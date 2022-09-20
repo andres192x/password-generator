@@ -5,6 +5,8 @@
 This password-generator was created for boot camp students to demonstrate abilities and key knowledge in javascript, html and css. It contains essential application of topics like arrays, for loops, random character generator, strings, variables and much more.
 file:///C:/Users/andre/Desktop/school/challenges/password-generator/index.html
 
+https://andres192x.github.io/password-generator/
+
 ## Installation
 
 N/A
